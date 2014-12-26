@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:votes, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:votes, :new) %></li>
+  <li class="active"> <%= link_to tag_icon(:edit, pat(:edit)), url(:votes, :edit, :id => @vote.id) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :vote, url(:votes, :update, :id => @vote.id), :method => :put, :class => 'form-horizontal' do |f| %>
+    <%= partial 'votes/form', :locals => { :f => f } %>
+  <% end %>
+</div>
